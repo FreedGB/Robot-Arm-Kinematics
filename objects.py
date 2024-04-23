@@ -1,4 +1,4 @@
-from math import sqrt,pi,cos,sin
+from math import sqrt,atan,pi,cos,sin
 
 
 class linear_joint:
@@ -50,13 +50,5 @@ class revo_joint:
         # This method will allow us to calculate, for every given coordinates, the angle that the moveable link have to rotate
         x0 = self.first_point_coordinates[0]
         y0 = self.first_point_coordinates[1]
-        
-
-
-
-'''
-class robot_arm:
-    def __init__(self,links_lenght:float,joint1_revo:float,joint2_revo:float):
-        self.links_lenght = links_lenght
-'''
-
+        new_angle = atan((y - y0 - self.L_fix*sin(self.initial_angle)) / (x - x0 - self.L_fix*cos(self.initial_angle)) ) - self.initial_angle
+        self.move(new_angle - self.angle)
