@@ -56,3 +56,17 @@ class revo_joint:
             self.move(new_angle - self.angle)
         else:
             print("\nOut of range")
+
+
+# A robot with two revolution joints. The two joints must be defined first
+class robot_arm_1:
+    def __init__(self, revo_joint1:revo_joint, revo_joint2:revo_joint):
+        self.revo_joint1 = revo_joint1
+        self.revo_joint2 = revo_joint2
+
+        self.base_coordinates = self.revo_joint1.first_point_coordinates
+
+        self.revo_joint2.first_point_coordinates = self.revo_joint1.end_point_coordinates
+        self.revo_joint2.calculate_coordinates()
+
+        self.grip_coordinates = self.revo_joint2.end_point_coordinates
