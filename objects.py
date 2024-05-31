@@ -70,11 +70,6 @@ class robot_arm_1:
 
         self.grip_coordinates = self.revo_joint2.end_point_coordinates
 
-    def calculate_coordinates(self):
-        self.revo_joint1.calculate_coordinates()
-        self.revo_joint2.first_point_coordinates = self.revo_joint1.end_point_coordinates
-        self.revo_joint2.calculate_coordinates()
-        self.grip_coordinates = self.revo_joint2.end_point_coordinates
 
     def move_to(self, x:float, y:float):
 
@@ -85,7 +80,7 @@ class robot_arm_1:
         L1 = self.revo_joint1.link_lenght
         L2 = self.revo_joint2.link_lenght
 
-        if round(x**2 + y**2,3) < (L1-L2)**2 or round(x**2 + y**2,3) > (L1+L2)**2:
+        if (x**2 + y**2) < (L1-L2)**2 or (x**2 + y**2) > (L1+L2)**2:
             print("\nOut of domain.")
             return
         
@@ -94,8 +89,8 @@ class robot_arm_1:
                 print("\nOut of domain.")
                 return
             
-            x0 = round(L1*cos(pi/4), 3)
-            y0 = round(L1*sin(pi/4), 3)
+            x0 = L1*cos(pi/4)
+            y0 = L1*sin(pi/4)
 
 
 
@@ -114,8 +109,8 @@ class robot_arm_1:
             delta = b**2 - 4*a*c
 
             if delta >= 0:
-                y0 = round((-b -sqrt(delta))/(2*a), 3)
-                x0 = round(((A/2) - y*y0)/x, 3)
+                y0 = (-b -sqrt(delta))/(2*a)
+                x0 = ((A/2) - y*y0)/x
 
 
         self.revo_joint1.move_to(x0,y0)
