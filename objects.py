@@ -39,7 +39,7 @@ class revo_joint:
         self.end_point_coordinates = [round(self.first_point_coordinates[0] + self.link_lenght*cos(self.angle),3) , round(self.first_point_coordinates[1] + self.link_lenght*sin(self.angle),3)]
 
     def calculate_coordinates(self):
-        self.end_point_coordinates = [self.first_point_coordinates[0] + self.link_lenght*cos(self.angle) , self.first_point_coordinates[1] + self.link_lenght*sin(self.angle)]
+        self.end_point_coordinates = self.end_point_coordinates = [round(self.first_point_coordinates[0] + self.link_lenght*cos(self.angle),3) , round(self.first_point_coordinates[1] + self.link_lenght*sin(self.angle),3)]
 
 
     def rotate_to(self, alpha:float):
