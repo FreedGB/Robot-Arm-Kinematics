@@ -73,8 +73,8 @@ class robot_arm_1:
 
     def move_to(self, x:float, y:float):
 
-        if x<0 or y<0:
-            print("\nx and y must be positive or nul.")
+        if y<0:
+            print("\ny must be positive or nul.")
             return
         
         L1 = self.revo_joint1.link_lenght
