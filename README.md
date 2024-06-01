@@ -7,6 +7,8 @@ This project implements a 2-link revolute robot arm in Python, including functio
 ## ROBOT ARM JOINTS
 There are mainly two types of joint implemented in this project: the linear joints and the revolute joint.
 
+![Robots_joints](images/Robots_joints.webp)
+
 ### 1- The linear joint:
 The linear joint is simply made of two "links", one fixed, and the other one which can move in or out of the first one. To implement the ``linear_joint`` class, I've considered two links, the fixed one (with fixed lenght) and the moveable one (variable lenght). By using simple trigonemetry, we can calculate the ``end_point_coordinates``:  ``x = x0 + link_lenght*cos(angle)`` and ``y = y0 + link_lenght*sin(self.angle)``.
 
@@ -25,6 +27,7 @@ The ``rotate`` method makes vary the angle by increasing or decreasing it. And f
 ## ROBOT ARM WITH TWO REVOLUTION JOINTS
 Here comes the almighthy warrior: inverse kinenatics! Some might be thinking: "But it's not difficult. You just have two consider the two angles, do trigo stuff and it's done. It's easy to find it on the internet". Well, it might be true. The problem is that... I didn't use trigonometry. Let's take a look!
 
+![Robot_arm_kinematics](images/Robot-Arm_Kinematics.jpg)
 
 Let's consider that drawing above. The area the robot arm can reach is hatched. For simpicity, we will not take into account negative y-coordinates.
 
