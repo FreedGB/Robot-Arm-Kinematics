@@ -9,6 +9,9 @@ print(f"Grip coordinates = {robot.grip_coordinates}")
 robot.move_to(-1,0)
 print(f"Grip coordinates = {robot.grip_coordinates}")
 
+robot.move_to(-15,0)
+print(f"Grip coordinates = {robot.grip_coordinates}")
+
 robot.move_to(0,0)
 print(f"Grip coordinates = {robot.grip_coordinates}")
 
